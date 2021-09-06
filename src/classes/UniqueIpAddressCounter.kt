@@ -12,10 +12,10 @@ class UniqueIpAddressCounter {
         bufferedReader.forEachLine {
             try {
                 val ipAddress = IpAddress(it);
+                this.ipAddressData.addIpAddress(ipAddress);
             } catch (e: IncorrectIpAddress) {
                 println("You have incorrect IPv4 address in file");
             }
-            this.ipAddressData.addIpAddress(ipAddress);
         }
         return this.ipAddressData.getUniqueIpAddressCount();
     }
